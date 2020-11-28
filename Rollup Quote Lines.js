@@ -10,7 +10,8 @@ export function onBeforeCalculate(quoteModel, quoteLineModels) {
     quoteLineModels.forEach((quoteLine) => {
       //Loop all components. If there aren't components, it is not going to execute the code below
       quoteLine.components.forEach(component => {
-        quoteLine.record.nogs__Sum_of_Qty__c += component.record.SBQQ__Quantity__c;
+        //accumulate the component quantity into the parent quote line custom field
+        quoteLine.record.Your_Custom_Field__c += component.record.SBQQ__Quantity__c;
       });
     });
     resolve();
